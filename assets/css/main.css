@@ -1795,6 +1795,7 @@ section,
   background-image: linear-gradient(to right, #f36 16%, #fa6f39 48%, #6b6cff 85%);
   background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-align: left;
 }
 
 .price_plan_area {
