@@ -1,0 +1,85 @@
+<?php
+header("Content-Type: application/json");
+
+// -------------------------------
+// Validate Input
+// -------------------------------
+$platform = $_POST['platform'] ?? '';
+$topic = $_POST['topic'] ?? '';
+
+if (empty($platform) || empty($topic)) {
+    echo json_encode(['error' => 'Please fill all fields!']);
+    exit;
+}
+
+// -------------------------------
+// Platform-specific instructions
+// -------------------------------
+$instruction = "";
+
+if ($platform == "facebook") {
+    $instruction = "Write an engaging Facebook post. Use simple tone, emojis, short paragraphs, and CTA with hashtags.";
+}
+
+if ($platform == "linkedin") {
+    $instruction = "Write a professional LinkedIn post. Use formal tone, value-based content, and add 3 relevant hashtags at the end.";
+}
+
+// -------------------------------
+// ChatGPT API Request
+// -------------------------------
+$apiKey = "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";
+
+$url = "https://api.openai.com/v1/chat/completions";
+$data = [
+    "model" => "gpt-4o-mini",    // fast + cheap + excellent
+    "messages" => [
+        ["role" => "system", "content" => "You are a social media content expert."],
+        ["role" => "user", "content" => "$instruction\nTopic: $topic"]
+    ],
+    "temperature" => 0.7
+];
+
+$payload = json_encode($data);
+
+$ch = curl_init();
+
+curl_setopt_array($ch, [
+    CURLOPT_URL => $url,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_POST => true,
+    CURLOPT_POSTFIELDS => $payload,
+    CURLOPT_HTTPHEADER => [
+        "Content-Type: application/json",
+        "Authorization: Bearer $apiKey"
+    ],
+    // ☑ Allow insecure for localhost
+    CURLOPT_SSL_VERIFYHOST => 0,
+    CURLOPT_SSL_VERIFYPEER => 0,
+]);
+
+$response = curl_exec($ch);
+
+if (curl_errno($ch)) {
+    echo json_encode(['error' => 'Curl Error: ' . curl_error($ch)]);
+    exit;
+}
+
+curl_close($ch);
+
+// -------------------------------
+// Parse ChatGPT Response
+// -------------------------------
+$res = json_decode($response, true);
+
+if (isset($res["choices"][0]["message"]["content"])) {
+    $text = $res["choices"][0]["message"]["content"];
+
+    echo json_encode([
+        "generated_text" => nl2br($text)
+    ]);
+} else {
+    echo json_encode([
+        "error" => "Failed to generate post. API issue."
+    ]);
+}

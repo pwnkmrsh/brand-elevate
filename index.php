@@ -1,94 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>BrandElevate</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-
-</head>
+<?php
+include "config.php";
+include "themes/include/header.php"; ?>
 
 <body class="index-page">
 
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <!-- Uncomment the line below if you also wish to use an text logo -->
-        <h1 class="sitename">BrandElevate.in</h1>
-      </a>
+<?php 
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active">Home<br></a></li>
-          <li><a href="#speakers">About</a></li>
-          <li><a href="#schedule">Work</a></li>
-          <li><a href="#venue">Services</a></li>
-          <li><a href="#hotels">Review</a></li>
-          <li><a href="#gallery">Resources</a></li>
-          <!-- <li><a href="#contact">Contact</a></li> -->
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
+include "themes/include/menu.php"; 
 
-      <!-- <a class="cta-btn d-none d-sm-block" href="#buy-tickets">Contact</a> -->
-      <a class="cta-btn d-none d-sm-block" href="#contact">Contact</a>
-
-
-    </div>
-  </header>
+?>
 
   <main class="main">
 
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-      <img
-        src="https://static.wixstatic.com/media/e9fb92_e5c398dc566e418496a09386017f12e2f000.jpg/v1/fill/w_1903,h_798,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/e9fb92_e5c398dc566e418496a09386017f12e2f000.jpg"
-        alt="" data-aos="fade-in" class="">
+      <img src="https://images.tech.co/wp-content/uploads/2015/09/digital-marketing.jpg" alt="" data-aos="fade-in"
+        class="">
 
       <!-- <video id="comp-lf2wkspw_video" class="K8MSra" crossorigin="anonymous" playsinline="" preload="auto" muted="" loop="" tabindex="-1" autoplay="" src="https://video.wixstatic.com/video/e9fb92_e5c398dc566e418496a09386017f12e2/1080p/mp4/file.mp4" style="height: 800px; width: 100%; object-fit: cover; object-position: center center; opacity: 1;"></video> -->
       <div class="container d-flex flex-column align-items-center text-center mt-auto">
-        <h2 data-aos="fade-up" data-aos-delay="100" class="">We elevate<br><span>brands </span>that are a force for
-          good.</h2>
-        <!-- <p data-aos="fade-up" data-aos-delay="200">10-12 December, Downtown Conference Center, New York</p> -->
-        <!--  <div data-aos="fade-up" data-aos-delay="300" class="">
-          <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn mt-3"></a>
-        </div> -->
+        <h2 data-aos="fade-up" data-aos-delay="100" class="">Transform Your Brand with <br><span>AI-Powered </span>
+          Marketing Excellence.</h2>
+
+
+        <div class="row mt-4">
+          <div class="col-lg-12">
+            <a href="#" class="btn btn-success">Start Your Free Trial</a>
+          </div>
+
+        </div>
+
+        <p data-aos="fade-up" data-aos-delay="200">View Demo</p>
+        <div data-aos="fade-up" data-aos-delay="300" class="">
+          <a href="https://youtu.be/3XD1oMKg-N0?si=BRiR3DyH6xVzfIAA" class="glightbox pulsating-play-btn mt-3"></a>
+        </div>
       </div>
 
       <div class="about-info mt-auto position-relative">
-
+        <!-- 
         <div class="container position-relative" data-aos="fade-up">
           <div class="row">
             <div class="col-lg-6">
-              <h2>About The BrandElevate.in</h2>
-              <p>Brand Elevate is a network of communication experts specialized in brand transformation for responsible
-                organizations. </p>
+              <h2>Transform Your Brand with AI-Powered Marketing Excellence</h2>
+              <p>Scale your business effortlessly with intelligent, personalized, and impactful marketing content
+                designed by Brand Elevate.</p>
             </div>
             <div class="col-lg-3">
               <h3>Where</h3>
@@ -102,19 +62,228 @@
               </p>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
 
     </section><!-- /Hero Section -->
 
-
-    <!-- Hotels Section -->
-    <section id="hotels" class="hotels section">
+    <section id="about" class="schedule section about-us">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>Brand Elevate is a network of communication experts specialized in brand transformation for responsible
+        <h2>About US<br></h2>
+        <p class="text-gradient">Empowering SMEs with AI-Driven Marketing Solutions</p>
+        <div class="mt-3">
+          <p class="">Brand Elevate harnesses cutting-edge artificial intelligence to deliver tailored marketing
+            strategies,
+            streamlined content creation, and actionable insights. We understand your brand’s voice and craft customized
+            content that not only resonates but drives tangible business growth.
+          </p>
+          <a class="badge text-bg-success text-left" href="about.php">Read More</a>
+        </div>
+
+
+
+      </div><!-- End Section Title -->
+    </section>
+    <section id="speakers" class="speakers section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Why Choose Brand Elevate?<br></h2>
+
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4 justify-content-center">
+
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <img src="assets/img/speakers/real-time-analytics.png" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4><a href="speaker-details.html">Real-time data analytics</a></h4>
+
+                </div>
+                <div class="social">
+                  <a href=""><i class="fa fa-signup"></i>Sign Up</a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <img src="assets/img/speakers/simplified_marketing_channel.png" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4><a href="speaker-details.html">Simplified multi-channel marketing</a></h4>
+                  <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Sign
+                    Up</a>
+
+                </div>
+                <div class="social">
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="member">
+              <img src="assets/img/speakers/ai-driven-green.png" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4><a href="speaker-details.html">Expertise in AI-driven brand growth</a></h4>
+                  <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Sign
+                    Up</a>
+                </div>
+                <div class="social">
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+        </div>
+
+      </div>
+
+    </section><!-- /Speakers Section -->
+
+
+    <!-- Schedule Section -->
+    <section id="our_tools" class="schedule section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Our Tools<br></h2>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <ul class="nav nav-tabs" role="tablist" data-aos="fade-up" data-aos-delay="100">
+          <li class="nav-item mb-3">
+            <a class="nav-link active" href="#day-1" role="tab" data-bs-toggle="tab">1. Social Media Generator</a>
+          </li>
+          <li class="nav-item mb-3">
+            <a class="nav-link" href="#day-2" role="tab" data-bs-toggle="tab">2. Blog Post Creator</a>
+          </li>
+          <li class="nav-item mb-3">
+            <a class="nav-link" href="#day-3" role="tab" data-bs-toggle="tab">3. Email Marketing Wizard</a>
+          </li>
+          <li class="nav-item mb-3">
+            <a class="nav-link" href="#day-4" role="tab" data-bs-toggle="tab">4. Content Planner</a>
+          </li>
+          <li class="nav-item mb-3">
+            <a class="nav-link" href="#day-5" role="tab" data-bs-toggle="tab">5. Brand Insights Analyzer</a>
+          </li>
+          <li class="nav-item mb-3">
+            <a class="nav-link" href="#day-6" role="tab" data-bs-toggle="tab">6. Whitepaper & eBook Builder</a>
+          </li>
+        </ul>
+
+        <div class="tab-content row justify-content-center" data-aos="fade-up" data-aos-delay="200">
+          <!-- Schdule Day 1 -->
+          <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>1. Social Media Generator</time></div>
+              <div class="col-md-10">
+                <h4>Create engaging</h4>
+                <h4>brand-consistent posts across platforms.</h4>
+              </div>
+            </div>
+          </div><!-- End Schdule Day 1 -->
+          <!-- Schdule Day 2 -->
+          <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-2">
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>2. Blog Post Creator</time></div>
+              <div class="col-md-10">
+                <div class="speaker">
+                </div>
+                <h4>Instantly generate SEO-friendly blogs that attract and engage.</h4>
+              </div>
+            </div>
+
+
+          </div><!-- End Schdule Day 2 -->
+          <!-- Schdule Day 3 -->
+          <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-3">
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>3. Email Marketing Wizard</time></div>
+              <div class="col-md-10">
+                <h4>Craft compelling <span>Email</span> sequences to convert leads.</h4>
+              </div>
+            </div>
+          </div><!-- End Schdule Day 3 -->
+          <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-4">
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>4. Content Planner</time></div>
+              <div class="col-md-10">
+                <h4>Strategize effectively based on market insights and brand goals.</h4>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-5">
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>5. Brand Insights Analyzer</time></div>
+              <div class="col-md-10">
+                <h4>Leverage data-driven recommendations to boost your brand.</h4>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-6">
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>6. Whitepaper & eBook Builder</time></div>
+              <div class="col-md-10">
+                <h4>Authoritative, insightful, and impactful long-form content effortlessly created by AI.</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- /Schedule Section -->
+    <section id="features" class="schedule section about-us">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Features<br></h2>
+        <p class="text-gradient">What Sets Brand Elevate Apart</p>
+
+        <div class="row gy-4 mt-4">
+
+          <div class="col-lg-6 mt-4">
+            <div class="col-12 " data-aos="fade-up"
+              data-aos-delay="200">
+              <ul>
+                <li class="badge text-bg-success text-left">AI-Driven Content Customization: Content crafted precisely in your brand’s unique voice.</li>
+                <li class="badge text-bg-primary text-left">All-in-One Marketing Platform: Unified solution covering strategy, creation, and analytics.</li>
+              </ul>
+            </div>
+          </div><!-- End Info Item -->
+          <div class="col-lg-6 mt-4">
+            <div class="col-12" data-aos="fade-up"
+              data-aos-delay="200">
+              <li class="badge text-bg-success text-left">Effortless Automation: Focus more on product innovation, less on marketing complexities.</li>
+              <li class="badge text-bg-primary text-left">Actionable Insights: Data-driven decisions that directly enhance your marketing ROI.
+              </li>
+            </div>
+          </div><!-- End Info Item -->
+        </div>
+
+
+
+
+      </div><!-- End Section Title -->
+    </section>
+    <!-- Hotels Section -->
+    <section id="benefits" class="hotels section price_plan_area">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Who Benefits Most?</h2>
+        <p class="text-gradient">Brand Elevate is a network of communication experts specialized in brand transformation
+          for responsible
           organizations.</p>
       </div><!-- End Section Title -->
 
@@ -125,35 +294,37 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="card h-100">
               <div class="card-img">
-                <img
-                  src="https://img-cdn.thepublive.com/fit-in/640x430/filters:format(webp)/local-samosal/media/media_files/Y5uLxkgaXNmdhBo9JhAo.jpg"
+                <img src="https://t4.ftcdn.net/jpg/01/39/58/07/360_F_139580766_usOYmagqtF2S3A1Zqw3C6v3DRaQ5gAER.jpg"
                   alt="" class="img-fluid">
               </div>
-              <h3><a href="#" class="stretched-link">Manifesto for Sustainable Brands</a></h3>
+              <h3><a href="#" class="stretched-link">Startups & SMEs</a></h3>
               <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                   class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-              <p>The roadbook to grow a modern caring and disruptive brand</p>
+              <p>Professional-quality marketing without hefty budgets.</p>
             </div>
           </div><!-- End Card Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="card h-100">
               <div class="card-img">
-                <img src="https://bangaloremirror.indiatimes.com/photo/56363405.cms" alt="" class="img-fluid">
+                <img
+                  src="https://static.vecteezy.com/system/resources/thumbnails/002/910/705/small_2x/travel-agency-concept-in-flat-design-vector.jpg"
+                  alt="" class="img-fluid">
               </div>
-              <h3><a href="#" class="stretched-link">Manifesto for Sustainable Brands</a></h3>
+              <h3><a href="#" class="stretched-link">Agencies & Marketers</a></h3>
               <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                   class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-              <p>The roadbook to grow a modern caring and disruptive brand</p>
+              <p>Streamlined content creation and campaign management.</p>
             </div>
           </div><!-- End Card Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="card h-100">
               <div class="card-img">
-                <img src="https://miu.sg/wp-content/uploads/Blog_9_Image_A-1024x743.jpg" alt="" class="img-fluid">
+                <img src="https://img.freepik.com/free-vector/design-process-concept-illustration_114360-5836.jpg"
+                  alt="" class="img-fluid">
               </div>
-              <h3><a href="#" class="stretched-link">Manifesto for Sustainable Brands</a></h3>
+              <h3><a href="#" class="stretched-link">Entrepreneurs & Innovators</a></h3>
               <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                   class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
               <p>The roadbook to grow a modern caring and disruptive brand</p>
@@ -166,133 +337,63 @@
 
     </section><!-- /Hotels Section -->
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery section">
+
+    <!-- Faq Section -->
+    <section id="faq" class="faq section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Gallery</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2>Frequently Asked Questions</h2>
+        <p>Common Questions & Solutions</p>
       </div><!-- End Section Title -->
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="container">
 
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "centeredSlides": true,
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 0
-                },
-                "768": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 20
-                },
-                "1200": {
-                  "slidesPerView": 5,
-                  "spaceBetween": 20
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                href="https://shreemay.in/uploads/gallery/g1.jpg"><img src="https://shreemay.in/uploads/gallery/g1.jpg"
-                  class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                href="https://shreemay.in/uploads/gallery/g2.jpg"><img src="https://shreemay.in/uploads/gallery/g2.jpg"
-                  class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                href="https://shreemay.in/uploads/gallery/g3.jpg"><img src="https://shreemay.in/uploads/gallery/g3.jpg"
-                  class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                href="https://shreemay.in/uploads/gallery/g4.jpg"><img src="https://shreemay.in/uploads/gallery/g4.jpg"
-                  class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                href="https://shreemay.in/uploads/gallery/g5.jpg"><img src="https://shreemay.in/uploads/gallery/g5.jpg"
-                  class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                href="https://shreemay.in/uploads/gallery/g6.jpg"><img src="https://shreemay.in/uploads/gallery/g6.jpg"
-                  class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                href="https://shreemay.in/uploads/gallery/g7.jpg"><img src="https://shreemay.in/uploads/gallery/g7.jpg"
-                  class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                href="https://shreemay.in/uploads/gallery/g8.jpg"><img src="https://shreemay.in/uploads/gallery/g8.jpg"
-                  class="img-fluid" alt=""></a></div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
+        <div class="row justify-content-center">
 
-      </div>
+          <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
 
-    </section><!-- /Gallery Section -->
+            <div class="faq-container">
 
-    <!-- Sponsors Section -->
-    <section id="sponsors" class="sponsors section light-background">
+              <div class="faq-item faq-active">
+                <h3>What makes Brand Elevate different from other AI platforms?
+                </h3>
+                <div class="faq-content">
+                  <p>
+                    We specialize in highly personalized, brand-centric marketing automation backed by robust analytics
+                    to provide consistently superior results.
+                  </p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>
-          OUR CLIENTELE
-        </h2>
+              <div class="faq-item">
+                <h3>Is Brand Elevate suitable for businesses without a marketing team?</h3>
+                <div class="faq-content">
+                  <p>Absolutely! Our tools are designed to empower businesses of all sizes, regardless of their existing
+                    marketing resources or expertise.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
 
-      </div><!-- End Section Title -->
+              <div class="faq-item">
+                <h3>Can I track my marketing performance with Brand Elevate?</h3>
+                <div class="faq-content">
+                  <p>Yes, our analytics tools provide real-time insights to measure and optimize your content strategies
+                    effectively.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+            </div>
 
-        <div class="row g-0 clients-wrap">
-
-          <div class="col-xl-3 col-md-4 client-logo">
-            <img src="https://shreemay.in/images/logo1.jpg" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-3 col-md-4 client-logo">
-            <img src="https://shreemay.in/images/logo2.jpg" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-3 col-md-4 client-logo">
-            <img src="https://shreemay.in/images/logo3.jpg" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-3 col-md-4 client-logo">
-            <img src="https://shreemay.in/images/logo4.jpg" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-3 col-md-4 client-logo">
-            <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-3 col-md-4 client-logo">
-            <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-3 col-md-4 client-logo">
-            <img src="assets/img/clients/client-7.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-3 col-md-4 client-logo">
-            <img src="assets/img/clients/client-8.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
+          </div><!-- End Faq Column-->
 
         </div>
 
       </div>
 
-    </section><!-- /Sponsors Section -->
+    </section><!-- /Faq Section -->
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">
@@ -331,7 +432,8 @@
               data-aos-delay="400">
               <i class="bi bi-envelope"></i>
               <h3>Email Us</h3>
-              <p>info@brandelevate.in</p>
+              <p>contact@brandelevate.in</p>
+              <p> &nbsp;</p>
             </div>
           </div><!-- End Info Item -->
 
@@ -383,80 +485,139 @@
       </div>
 
     </section><!-- /Contact Section -->
+    <section id="contact" class="contact section">
 
-  </main>
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>Let's elevate your <strong>BRAND</strong>.</p>
+      </div><!-- End Section Title -->
 
-  <footer id="footer" class="footer dark-background">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-    <div class="footer-top">
-      <div class="container">
         <div class="row gy-4">
-          <div class="col-lg-4 col-md-6 footer-about">
-            <a href="index.html" class="logo d-flex align-items-center">
-              <span class="sitename">TheEvent</span>
-            </a>
-            <div class="footer-contact pt-3">
-              <p> HO. C 169, Street no. 9, Kishan Kunj
-              <p>
-              <p> Near Budhi Mata Mandir, Shailendra Nagar, Raipur-492001 C.G.</p>
-              <p class="mt-3"><strong>Phone:</strong> <span>+91 9806130001 <br> +91 7224921234</span></p>
-              <p><strong>Email:</strong> <span>info@brandelevate.in</span></p>
+          <div class="col-lg-3 col-md-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up"
+              data-aos-delay="300">
+              <i class="bi bi-telephone"></i>
+              <h3>Call Us</h3>
+              <p>+91 9806130001 <br> +91 7224921234</p>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up"
+              data-aos-delay="300">
+              <i class="bi bi-telephone"></i>
+              <h3>Call Us</h3>
+              <p>+91 9806130001 <br> +91 7224921234</p>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up"
+              data-aos-delay="300">
+              <i class="bi bi-telephone"></i>
+              <h3>Call Us</h3>
+              <p>+91 9806130001 <br> +91 7224921234</p>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up"
+              data-aos-delay="300">
+              <i class="bi bi-telephone"></i>
+              <h3>Call Us</h3>
+              <p>+91 9806130001 <br> +91 7224921234</p>
+            </div>
+          </div><!-- End Info Item -->
+        </div>
+      </div>
+    </section>
+
+    <link rel="stylesheet" href="https://cdn.lineicons.com/3.0/lineicons.css">
+    <section class="price_plan_area section_padding_130_80" id="pricing">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-sm-8 col-lg-6">
+            <!-- Section Heading-->
+            <div class="section-heading text-center wow fadeInUp" data-wow-delay="0.2s"
+              style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+              <h6>Pricing Plans</h6>
+              <h3>Let's find a way together</h3>
+              <div class="line"></div>
             </div>
           </div>
-
-          <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Terms of service</a></li>
-              <li><a href="#">Privacy policy</a></li>
-            </ul>
+        </div>
+        <div class="row justify-content-center mt-4">
+          <!-- Single Price Plan Area-->
+          <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+            <div class="single_price_plan wow fadeInUp" data-wow-delay="0.2s"
+              style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+              <div class="title">
+                <h3>Starter</h3>
+                <p>Start a trial</p>
+                <div class="line"></div>
+              </div>
+              <div class="price">
+                <h4>₹6,295/month</h4>
+              </div>
+              <div class="description">
+                <p><i class="lni lni-checkmark-circle"></i>Free 7-Day Trial </p>
+                <p><i class="lni lni-checkmark-circle"></i>Ideal for entrepreneurs and small businesses</p>
+                <p><i class="lni lni-checkmark-circle"></i>(originally ₹7,406/month).</p>
+              </div>
+              <div class="button"><a class="btn btn-success btn-2" href="#">Get Started</a></div>
+            </div>
           </div>
-
+          <!-- Single Price Plan Area-->
+          <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+            <div class="single_price_plan active wow fadeInUp" data-wow-delay="0.2s"
+              style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+              <!-- Side Shape-->
+              <div class="side-shape"><img src="https://bootdey.com/img/popular-pricing.png" alt=""></div>
+              <div class="title"><span>Popular</span>
+                <h3>Professional</h3>
+                <p>For Small Business Team</p>
+                <div class="line"></div>
+              </div>
+              <div class="price">
+                <h4>₹12,664/month</h4>
+              </div>
+              <div class="description">
+                <p><i class="lni lni-checkmark-circle"></i>Advanced analytics</p>
+                <p><i class="lni lni-checkmark-circle"></i>Unlimited content generation</p>
+                <p><i class="lni lni-checkmark-circle"></i>Originally ₹14,899/month</p>
+              </div>
+              <div class="button"><a class="btn btn-warning" href="#">Get Started</a></div>
+            </div>
+          </div>
+          <!-- Single Price Plan Area-->
+          <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+            <div class="single_price_plan wow fadeInUp" data-wow-delay="0.2s"
+              style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+              <div class="title">
+                <h3>Enterprise</h3>
+                <p>Unlimited Possibilities</p>
+                <div class="line"></div>
+              </div>
+              <div class="price">
+                <h4>₹15,664/month</h4>
+              </div>
+              <div class="description">
+                <p><i class="lni lni-checkmark-circle"></i>Customized pricing tailored to your needs</p>
+                <p><i class="lni lni-checkmark-circle"></i>Complete with dedicated support.</p>
+                <p><i class="lni lni-checkmark-circle"></i>Integrations free</p>
+              </div>
+              <div class="button"><a class="btn btn-info" href="#">Get Started</a></div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+  </main>
 
-    <div class="copyright text-center">
-      <div
-        class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
-
-        <div class="d-flex flex-column align-items-center align-items-lg-start">
-          <div>
-            © Copyright <strong><span>BrandElevate.in</span></strong>. All Rights Reserved
-          </div>
-        </div>
-
-        <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
-          <a href=""><i class="bi bi-twitter-x"></i></a>
-          <a href=""><i class="bi bi-facebook"></i></a>
-          <a href=""><i class="bi bi-instagram"></i></a>
-          <a href=""><i class="bi bi-linkedin"></i></a>
-        </div>
-
-      </div>
-    </div>
-
-  </footer>
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <?php include "themes/include/footer.php"; ?>
 
 </body>
 
