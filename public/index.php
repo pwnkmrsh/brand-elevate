@@ -1,11 +1,6 @@
-<?php
-include "../config/config.php";
-include "../themes/include/header.php";
-include "../themes/include/menu.php";
-?>
+<?php include "../themes/include/header.php"; ?>
 
 <main class="main">
-
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
@@ -20,7 +15,10 @@ include "../themes/include/menu.php";
 
             <div class="row mt-4">
                 <div class="col-lg-12">
-                    <a href="#" class="btn btn-success">Start Your Free Trial</a>
+                     <a class="btn btn-success" href="tools.php" target="_blank" rel="noopener noreferrer">
+                        <h4>Try Now</h4>
+                    </a>
+
                 </div>
 
             </div>
@@ -178,6 +176,9 @@ include "../themes/include/menu.php";
                         <div class="col-md-10">
                             <h4>Create engaging</h4>
                             <h4>brand-consistent posts across platforms.</h4>
+                            <a href="tools.php" target="_blank" rel="noopener noreferrer">
+                                <h4>Try Now</h4>
+                            </a>
                         </div>
                     </div>
                 </div><!-- End Schdule Day 1 -->

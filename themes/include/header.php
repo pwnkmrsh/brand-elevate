@@ -1,3 +1,4 @@
+<?php include "../config/config.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,3 +43,4 @@
     }
   </style>
 </head>
+  <?php include "../themes/include/menu.php";?>

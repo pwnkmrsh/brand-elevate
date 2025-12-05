@@ -1,90 +1,105 @@
 <?php
+// generate.php
+require_once __DIR__ . '../../config/config.php';
 
-// Your OpenAI API Key
-$apiKey = "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";
+header('Content-Type: application/json; charset=utf-8');
 
-$platform = $_POST['platform'];
-$topic = $_POST['topic'];
+function jsonError($msg, $details = null, $http_code = 200) {
+    http_response_code($http_code);
+    echo json_encode(['error' => $msg, 'details' => $details]);
+    exit;
+}
 
-// Platform-specific tone
-$platformPrompt = [
-    "facebook" => "Write a friendly, engaging Facebook post.",
-    "linkedin" => "Write a professional LinkedIn post with clean formatting.",
+// simple validation
+$platform = trim($_POST['platform'] ?? '');
+$tone     = trim($_POST['tone'] ?? '');
+$topic    = trim($_POST['topic'] ?? '');
+
+if (!$platform || !$topic) {
+    jsonError("Platform and topic are required.");
+}
+
+// build system prompt & user prompt
+$system = "You are a social media content expert. Produce concise, platform-appropriate posts.";
+$userPrompt = "Platform: {$platform}\nTone: {$tone}\nTopic: {$topic}\n\nWrite an optimized social media post suitable for the platform. Output only the post text.";
+
+// payload for OpenAI-compatible Gemini endpoint
+$payload = [
+    'model' => GEMINI_MODEL,
+    'messages' => [
+        ['role' => 'system', 'content' => $system],
+        ['role' => 'user', 'content' => $userPrompt],
+    ],
+    'temperature' => GEMINI_TEMPERATURE,
+    'max_tokens' => GEMINI_MAX_TOKENS,
 ];
 
-$finalPrompt = $platformPrompt[$platform] . " Topic: " . $topic;
+// prepare curl
+$ch = curl_init();
+$url = GEMINI_OPENAI_ENDPOINT;
 
-// API URL
-$url = "https://api.openai.com/v1/chat/completions";
-
-// Request payload
-$data = [
-    //"model" => "gpt-4o-mini",
-    "model" => "gpt-4o",   // HIGHER QUALITY
-    "temperature" => 0.7,  // MORE CREATIVE
-
-    "messages" => [
-        ["role" => "system", "content" => "You are an expert social media content creator. Write high-quality, engaging, polished posts."],
-        ["role" => "user", "content" => $finalPrompt]
-    ]
-];
-
-// Headers
+// If you need to use an API key in query string instead of bearer, modify $url to add ?key=YOUR_KEY
 $headers = [
-    "Content-Type: application/json",
-    "Authorization: Bearer $apiKey"
+    'Content-Type: application/json',
+    // For most Google Cloud setups you must use an OAuth bearer token (set GEMINI_API_KEY to that token)
+    // If you have a simple API key and Google expects it as ?key=API_KEY, then remove this header and append ?key=API_KEY to $url
+    'Authorization: Bearer ' . GEMINI_API_KEY,
 ];
 
-$ch = curl_init($url);
 
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-// Ignore SSL (only for localhost)
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt_array($ch, [
+    CURLOPT_URL => $url,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_POST => true,
+    CURLOPT_POSTFIELDS => json_encode($payload),
+    CURLOPT_HTTPHEADER => $headers,
+    CURLOPT_TIMEOUT => 45,
+    // For localhost only — remove on production
+    CURLOPT_SSL_VERIFYHOST => 0,
+    CURLOPT_SSL_VERIFYPEER => 0,
+]);
 
 $response = curl_exec($ch);
-curl_close($ch);
+$curlErr = curl_error($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch); 
 
-// Decode response
-$result = json_decode($response, true);
-$postText = $result["choices"][0]["message"]["content"] ?? "No response";
+if ($curlErr) {
+    jsonError("cURL error: " . $curlErr, null, 500);
+}
 
-?>
+if ($httpCode >= 400) {
+    // try to decode error JSON
+    $decoded = json_decode($response, true);
+    // Return API error details for debugging
+    jsonError("API returned HTTP error: " . $httpCode, $decoded, $httpCode);
+}
 
-<!DOCTYPE html>
-<html lang="en">
+$decoded = json_decode($response, true);
+if ($decoded === null) {
+    jsonError("Invalid JSON from API", $response, 500);
+}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Generated Post</title>
-    <style>
-        body {
-            font-family: Arial;
-            padding: 20px;
-        }
+// OpenAI-compatible error structure
+if (isset($decoded['error'])) {
+    jsonError("API error", $decoded['error'], $httpCode ?: 500);
+}
 
-        .output {
-            background: #f4f4f4;
-            padding: 20px;
-            border-radius: 5px;
-        }
-    </style>
-</head>
+// Extract message (OpenAI-compatible shape)
+$generated = null;
+if (isset($decoded['choices'][0]['message']['content'])) {
+    $generated = $decoded['choices'][0]['message']['content'];
+} elseif (isset($decoded['choices'][0]['text'])) {
+    // fallback older/completion-like responses
+    $generated = $decoded['choices'][0]['text'];
+} else {
+    // If the response shape differs, return whole raw struct for inspection
+    jsonError("No generated text found in API response", $decoded, 500);
+}
 
-<body>
-
-    <h2>Your Generated <?= ucfirst($platform) ?> Post</h2>
-
-    <div class="output">
-        <pre><?php echo htmlspecialchars($postText); ?></pre>
-    </div>
-
-    <a href="index.html">⬅ Generate another post</a>
-
-</body>
-
-</html>
+// Success: return HTML-safe string and raw response for debug
+echo json_encode([
+    'generated_text' => nl2br(htmlspecialchars($generated)),
+    'raw' => $decoded
+]);
+exit;

@@ -19,6 +19,20 @@
           <li><a href="#gallery">Blog</a></li>
           <li><a href="#faq">FAQs</a></li>
 
+          <?php
+       /*    if (isset($_SESSION['name']) && !empty($_SESSION['name'])) {
+            echo  '<li><a href="#faq">' . htmlspecialchars($_SESSION['name']) . '</a></li>';
+            echo "<li><a href='logout.php'>Logout</a></li>";
+          }
+
+
+          if (isset($_SESSION['image']) && !empty($_SESSION['image'])) {
+            echo "<img src='" . htmlspecialchars($_SESSION['image']) . "' width='80' />";
+          }  */
+
+
+
+          ?>
           <!-- <li><a href="#contact">Contact</a></li> -->
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -26,7 +40,5 @@
 
       <!-- <a class="cta-btn d-none d-sm-block" href="#buy-tickets">Contact</a> -->
       <a class="cta-btn d-none d-sm-block" href="#contact">Contact</a>
-
-
     </div>
   </header>

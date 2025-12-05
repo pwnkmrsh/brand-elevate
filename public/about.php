@@ -1,8 +1,5 @@
-<?php
-include "../config/config.php";
-include "../themes/include/header.php";
-include "../themes/include/menu.php";
-?>
+<?php include "../themes/include/header.php"; ?>
+
 <main class="main">
 
     <!-- Page Title -->
