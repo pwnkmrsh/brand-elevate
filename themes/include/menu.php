@@ -4,7 +4,7 @@
       <a href="index.php" class="logo d-flex align-items-center me-auto">
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <!-- Uncomment the line below if you also wish to use an text logo -->
-        <h1 class="sitename">Brand Elevate</h1>
+        <h1 class="sitename"><?php echo SITE_NAME; ?></h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -18,17 +18,15 @@
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#gallery">Blog</a></li>
           <li><a href="#faq">FAQs</a></li>
-
           <?php
-       /*    if (isset($_SESSION['name']) && !empty($_SESSION['name'])) {
+
+          if (isset($_SESSION['name']) && !empty($_SESSION['name'])) {
             echo  '<li><a href="#faq">' . htmlspecialchars($_SESSION['name']) . '</a></li>';
             echo "<li><a href='logout.php'>Logout</a></li>";
           }
-
-
           if (isset($_SESSION['image']) && !empty($_SESSION['image'])) {
             echo "<img src='" . htmlspecialchars($_SESSION['image']) . "' width='80' />";
-          }  */
+          }
 
 
 

@@ -1,4 +1,9 @@
 <?php
+ob_start(); // 🔥 buffer everything
+header('Content-Type: application/json');
+error_reporting(0); // 🔥 hide notices/warnings
+ini_set('display_errors', 0);
+
 require_once __DIR__ . '../../config/config.php';
 header('Content-Type: application/json');
 
@@ -105,6 +110,8 @@ if ($generate_image === "yes") {
 
 $generated_text = $data['choices'][0]['message']['content'] ?? '';
 $search_results = $data['search_results'][0] ?? [];  // ADD THIS
+return $data["citations"];
+
 
 echo json_encode([
     'generated_text' => $generated_text,
@@ -112,4 +119,7 @@ echo json_encode([
     'raw' => $data,
     'image_url' => $image_url ?? null
 ]);
+
+ob_end_clean();  
+echo json_encode($response_array);
 exit;

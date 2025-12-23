@@ -51,6 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             </a>
             <br>
             <br>
+            <br>
+            <br>
             OR
         </div><!-- End Section Title -->
 
@@ -71,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 <label for="exampleInputPassword1">Password</label>
                                 <input type="password" class="form-control" id="exampleInputPassword1">
                             </div>
+                            <hr>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                         <p class="card-text">Don’t have an account?

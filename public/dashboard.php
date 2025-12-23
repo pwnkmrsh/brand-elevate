@@ -1,9 +1,11 @@
 <?php include "../themes/include/header.php"; ?>
 <?php
-if (!isset($_SESSION['user_id'])) {
+ 
+if (empty($_SESSION['user_id'])) {
     header("Location: login.php");
-    exit;
+    exit("session not found");
 }
+
 ?>
 
 <style>

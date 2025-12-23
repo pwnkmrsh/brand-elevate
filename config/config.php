@@ -1,8 +1,8 @@
-<?php
-session_start();
+<?php session_start();
 require "../config/db.php";
 define("BASE_URL", "http://localhost/brand-elevate");
 define("BASE_PATH", $_SERVER['DOCUMENT_ROOT'] . "/public");
+define("SITE_NAME", "TEST");
 define("API_KEY", "your-openai-key-here");
 
 define('GEMINI_API_KEY', 'AIzaSyB-pnJPyproKPFGRwhwVHAH9yeQ7AViY8s');
