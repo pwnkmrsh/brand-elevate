@@ -1,16 +1,9 @@
 <?php
-ob_start(); // 🔥 buffer everything
-header('Content-Type: application/json');
-error_reporting(0); // 🔥 hide notices/warnings
-ini_set('display_errors', 0);
-
 require_once __DIR__ . '../../config/config.php';
 header('Content-Type: application/json');
-
-// Inputs
-$platform = $_POST['platform'] ?? '';
-$tone = $_POST['tone'] ?? '';
-$topic = $_POST['topic'] ?? '';
+ $platform       = $_POST['platform'] ?? '';
+$tone           = $_POST['tone'] ?? '';
+$topic          = $_POST['topic'] ?? '';
 $generate_image = $_POST['generate_image'] ?? 'no';
 
 if (!$platform || !$tone || !$topic) {
@@ -18,24 +11,36 @@ if (!$platform || !$tone || !$topic) {
     exit;
 }
 
-/* Platform templates (same as before) */
+/* ===============================
+   PLATFORM PROMPTS
+================================ */
 $templates = [
-    "facebook" => "Write in Facebook style...",
-    "linkedin" => "Professional LinkedIn style...",
+    "facebook"  => "Write in Facebook style...",
+    "linkedin"  => "Professional LinkedIn style...",
     "instagram" => "Creative Instagram caption...",
-    "twitter" => "Short Twitter/X style...",
-    "youtube" => "YouTube community post..."
+    "twitter"   => "Short Twitter/X style...",
+    "youtube"   => "YouTube community post..."
 ];
 
-$template = $templates[$platform];
+$template = $templates[$platform] ?? '';
 
-// Create main text prompt
-$main_prompt = "Generate a {$platform} social media post. Topic: {$topic} Tone: {$tone} Platform-specific rules: {$template} Return only the post text.";
+$main_prompt = "
+Generate a {$platform} social media post.
 
-// #### API KEY ####
+Topic: {$topic}
+Tone: {$tone}
+
+Platform rules:
+{$template}
+
+Return only the post text.
+";
+
+/* ===============================
+   1) TEXT GENERATION (PERPLEXITY)
+================================ */
 $api_key = PERPLEXITY_API_KEY;
 
-// ====== 1) TEXT GENERATION ======
 $text_payload = [
     "model" => "sonar",
     "messages" => [
@@ -43,8 +48,8 @@ $text_payload = [
     ]
 ];
 
-$text_ch = curl_init("https://api.perplexity.ai/chat/completions");
-curl_setopt_array($text_ch, [
+$ch = curl_init("https://api.perplexity.ai/chat/completions");
+curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => json_encode($text_payload),
     CURLOPT_HTTPHEADER => [
@@ -56,25 +61,29 @@ curl_setopt_array($text_ch, [
     CURLOPT_SSL_VERIFYHOST => 0
 ]);
 
-$text_response = curl_exec($text_ch);
-curl_close($text_ch);
+$response = curl_exec($ch);
+curl_close($ch);
 
-$text_data = json_decode($text_response, true);
-$post_text = $text_data['choices'][0]['message']['content'] ?? '';
+$data = json_decode($response, true);
+$post_text = $data['choices'][0]['message']['content'] ?? '';
 
-// ====== 2) OPTIONAL IMAGE GENERATION ======
- $image_url = null;
+if (!$post_text) {
+    echo json_encode(["error" => "Text generation failed"]);
+    exit;
+}
 
-if ($generate_image === "yes") {
+/* ===============================
+   2) OPTIONAL IMAGE GENERATION
+================================ */
+$image_url = null;
 
-    $stability_key = $api_key;
+if ($generate_image === 'yes') {
 
-    $prompt = "Create a clean professional social media graphic based on: {$topic}";
+    $stability_key = STABILITY_API_KEY;
+    $prompt = "Professional social media graphic for: {$topic}";
 
-    $img_ch = curl_init();
-
-    curl_setopt_array($img_ch, [
-        CURLOPT_URL => "https://api.stability.ai/v2beta/stable-image/generate/ultra",
+    $img = curl_init("https://api.stability.ai/v2beta/stable-image/generate/ultra");
+    curl_setopt_array($img, [
         CURLOPT_POST => true,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_HTTPHEADER => [
@@ -88,38 +97,58 @@ if ($generate_image === "yes") {
         CURLOPT_SSL_VERIFYHOST => 0
     ]);
 
-    $img_result = curl_exec($img_ch);
-    curl_close($img_ch);
+    $img_result = curl_exec($img);
+    curl_close($img);
 
-    if ($img_result) {
-        $img_data = json_decode($img_result, true);
+    $img_data = json_decode($img_result, true);
 
-        if (isset($img_data["image"])) {
-            $base64 = $img_data["image"];
-
-            // Save locally
-            $filename = "generated/" . time() . ".png";
-            file_put_contents($filename, base64_decode($base64));
-
-            // Public URL
-            $image_url = $filename;
-        }
+    if (!empty($img_data['image'])) {
+        $filename = "generated/" . time() . ".png";
+        file_put_contents($filename, base64_decode($img_data['image']));
+        $image_url = $filename;
     }
 }
 
+/* ===============================
+   3) SAVE TO DB (FUNCTION)
+================================ */
+function saveSocialPost(PDO $pdo, $platform, $tone, $topic, $post_text, $image_url)
+{
+    $sql = "
+        INSERT INTO social_posts
+        (platform, tone, topic, post_text, image_url)
+        VALUES (:platform, :tone, :topic, :post_text, :image_url)
+    ";
 
-$generated_text = $data['choices'][0]['message']['content'] ?? '';
-$search_results = $data['search_results'][0] ?? [];  // ADD THIS
-return $data["citations"];
+    $stmt = $pdo->prepare($sql);
 
+    $stmt->execute([
+        ':platform'  => $platform,
+        ':tone'      => $tone,
+        ':topic'     => $topic,
+        ':post_text' => $post_text,
+        ':image_url' => $image_url
+    ]);
 
+    return $pdo->lastInsertId();
+}
+
+$post_id = saveSocialPost(
+    $pdo,
+    $platform,
+    $tone,
+    $topic,
+    $post_text,
+    $image_url
+);
+
+/* ===============================
+   FINAL RESPONSE
+================================ */
 echo json_encode([
-    'generated_text' => $generated_text,
-    'search_results' => $search_results,
-    'raw' => $data,
-    'image_url' => $image_url ?? null
+    "status" => "success",
+    "post_id" => $post_id,
+    "generated_text" => $post_text,
+    "image_url" => $image_url
 ]);
-
-ob_end_clean();  
-echo json_encode($response_array);
 exit;

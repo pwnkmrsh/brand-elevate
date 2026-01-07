@@ -15,7 +15,7 @@
 
             <div class="row mt-4">
                 <div class="col-lg-12">
-                     <a class="btn btn-success" href="tools.php" target="_blank" rel="noopener noreferrer">
+                     <a class="btn btn-success" href="dashboard" target="_blank" rel="noopener noreferrer">
                         <h4>Try Now</h4>
                     </a>
 

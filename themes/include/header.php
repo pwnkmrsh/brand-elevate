@@ -28,6 +28,7 @@
 
   <!-- Main CSS File -->
   <link href="<?php echo BASE_URL; ?>/assets/css/main.css" rel="stylesheet">
+  <link href="<?php echo BASE_URL; ?>/assets/css/mycss.css" rel="stylesheet">
   <style>
     .header {
       background: linear-gradient(to right, #911a80, #d42b45);

@@ -1,0 +1,85 @@
+[23-Dec-2025 12:40:03 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nukkadne/public_html/mynatech.in/be/config/config.php:23) in /home/nukkadne/public_html/mynatech.in/be/public/dashboard.php on line 5
+[23-Dec-2025 12:40:13 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nukkadne/public_html/mynatech.in/be/config/config.php:23) in /home/nukkadne/public_html/mynatech.in/be/public/dashboard.php on line 5
+[23-Dec-2025 12:40:54 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nukkadne/public_html/mynatech.in/be/config/config.php:23) in /home/nukkadne/public_html/mynatech.in/be/public/dashboard.php on line 5
+[23-Dec-2025 12:41:29 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nukkadne/public_html/mynatech.in/be/config/config.php:23) in /home/nukkadne/public_html/mynatech.in/be/public/dashboard.php on line 5
+[23-Dec-2025 12:47:28 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nukkadne/public_html/mynatech.in/be/config/config.php:23) in /home/nukkadne/public_html/mynatech.in/be/public/dashboard.php on line 5
+[23-Dec-2025 12:47:32 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nukkadne/public_html/mynatech.in/be/config/config.php:23) in /home/nukkadne/public_html/mynatech.in/be/public/dashboard.php on line 5
+[23-Dec-2025 12:48:44 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nukkadne/public_html/mynatech.in/be/config/config.php:23) in /home/nukkadne/public_html/mynatech.in/be/public/dashboard.php on line 5
+[23-Dec-2025 12:48:56 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nukkadne/public_html/mynatech.in/be/config/config.php:23) in /home/nukkadne/public_html/mynatech.in/be/public/dashboard.php on line 5
+[23-Dec-2025 12:49:17 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nukkadne/public_html/mynatech.in/be/config/config.php:23) in /home/nukkadne/public_html/mynatech.in/be/public/dashboard.php on line 5
+[23-Dec-2025 12:49:21 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nukkadne/public_html/mynatech.in/be/config/config.php:23) in /home/nukkadne/public_html/mynatech.in/be/public/dashboard.php on line 5
+[23-Dec-2025 12:51:27 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nukkadne/public_html/mynatech.in/be/config/config.php:23) in /home/nukkadne/public_html/mynatech.in/be/public/dashboard.php on line 5
+[23-Dec-2025 12:51:51 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nukkadne/public_html/mynatech.in/be/config/config.php:23) in /home/nukkadne/public_html/mynatech.in/be/public/perplexity_api.php on line 3
+[23-Dec-2025 12:52:37 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nukkadne/public_html/mynatech.in/be/config/config.php:23) in /home/nukkadne/public_html/mynatech.in/be/public/dashboard.php on line 5
+[23-Dec-2025 12:54:48 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nukkadne/public_html/mynatech.in/be/config/config.php:23) in /home/nukkadne/public_html/mynatech.in/be/public/dashboard.php on line 4
+[23-Dec-2025 12:54:52 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nukkadne/public_html/mynatech.in/be/config/config.php:23) in /home/nukkadne/public_html/mynatech.in/be/public/dashboard.php on line 4
+[23-Dec-2025 12:54:57 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nukkadne/public_html/mynatech.in/be/config/config.php:23) in /home/nukkadne/public_html/mynatech.in/be/public/dashboard.php on line 4
+[31-Dec-2025 07:49:07 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nukkadne/public_html/mynatech.in/be/config/config.php:23) in /home/nukkadne/public_html/mynatech.in/be/public/perplexity_api.php on line 3
+[31-Dec-2025 07:53:34 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nukkadne/public_html/mynatech.in/be/config/config.php:23) in /home/nukkadne/public_html/mynatech.in/be/public/perplexity_api.php on line 3
+[31-Dec-2025 07:53:57 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nukkadne/public_html/mynatech.in/be/config/config.php:23) in /home/nukkadne/public_html/mynatech.in/be/public/perplexity_api.php on line 3
+[31-Dec-2025 07:55:21 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nukkadne/public_html/mynatech.in/be/config/config.php:23) in /home/nukkadne/public_html/mynatech.in/be/public/perplexity_api.php on line 3
+[31-Dec-2025 12:01:55 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/nukkadne/public_html/brand-elevate.in/vendor/composer/platform_check.php on line 24
+[31-Dec-2025 12:02:01 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/nukkadne/public_html/brand-elevate.in/vendor/composer/platform_check.php on line 24
+[31-Dec-2025 12:02:07 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/nukkadne/public_html/brand-elevate.in/vendor/composer/platform_check.php on line 24
+[31-Dec-2025 12:02:17 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/nukkadne/public_html/brand-elevate.in/vendor/composer/platform_check.php on line 24
+[31-Dec-2025 12:02:20 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/nukkadne/public_html/brand-elevate.in/vendor/composer/platform_check.php on line 24
+[31-Dec-2025 12:02:23 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/nukkadne/public_html/brand-elevate.in/vendor/composer/platform_check.php on line 24
+[31-Dec-2025 12:02:23 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/nukkadne/public_html/brand-elevate.in/vendor/composer/platform_check.php on line 24
+[31-Dec-2025 12:02:56 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/nukkadne/public_html/brand-elevate.in/vendor/composer/platform_check.php on line 24
+[31-Dec-2025 12:03:02 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/nukkadne/public_html/brand-elevate.in/vendor/composer/platform_check.php on line 24
+[31-Dec-2025 12:03:06 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/nukkadne/public_html/brand-elevate.in/vendor/composer/platform_check.php on line 24
+[31-Dec-2025 12:03:35 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/nukkadne/public_html/brand-elevate.in/vendor/composer/platform_check.php on line 24
+[31-Dec-2025 12:04:59 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/nukkadne/public_html/brand-elevate.in/vendor/composer/platform_check.php on line 24
+[31-Dec-2025 12:05:02 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/nukkadne/public_html/brand-elevate.in/vendor/composer/platform_check.php on line 24
+[31-Dec-2025 12:05:03 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/nukkadne/public_html/brand-elevate.in/vendor/composer/platform_check.php on line 24
+[31-Dec-2025 12:05:33 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/nukkadne/public_html/brand-elevate.in/vendor/composer/platform_check.php on line 24
+[31-Dec-2025 12:05:36 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/nukkadne/public_html/brand-elevate.in/vendor/composer/platform_check.php on line 24
+[31-Dec-2025 12:05:38 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/nukkadne/public_html/brand-elevate.in/vendor/composer/platform_check.php on line 24
+[31-Dec-2025 12:05:54 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/nukkadne/public_html/brand-elevate.in/vendor/composer/platform_check.php on line 24
+[31-Dec-2025 12:06:33 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/nukkadne/public_html/brand-elevate.in/vendor/composer/platform_check.php on line 24
+[31-Dec-2025 12:06:50 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/nukkadne/public_html/brand-elevate.in/vendor/composer/platform_check.php on line 24
+[31-Dec-2025 12:17:26 UTC] PHP Fatal error:  Uncaught Error: Class 'PDO' not found in /home/nukkadne/public_html/brand-elevate.in/config/db.php:8
+Stack trace:
+#0 /home/nukkadne/public_html/brand-elevate.in/config/config.php(2): require()
+#1 /home/nukkadne/public_html/brand-elevate.in/themes/include/header.php(1): include('/home/nukkadne/...')
+#2 /home/nukkadne/public_html/brand-elevate.in/public/index.php(1): include('/home/nukkadne/...')
+#3 {main}
+  thrown in /home/nukkadne/public_html/brand-elevate.in/config/db.php on line 8
+[31-Dec-2025 12:17:28 UTC] PHP Fatal error:  Uncaught Error: Class 'PDO' not found in /home/nukkadne/public_html/brand-elevate.in/config/db.php:8
+Stack trace:
+#0 /home/nukkadne/public_html/brand-elevate.in/config/config.php(2): require()
+#1 /home/nukkadne/public_html/brand-elevate.in/themes/include/header.php(1): include('/home/nukkadne/...')
+#2 /home/nukkadne/public_html/brand-elevate.in/public/index.php(1): include('/home/nukkadne/...')
+#3 {main}
+  thrown in /home/nukkadne/public_html/brand-elevate.in/config/db.php on line 8
+[06-Jan-2026 16:22:17 UTC] PHP Warning:  Undefined variable $conn in /home/nukkadne/public_html/brand-elevate.in/public/perplexity_api.php on line 115
+[06-Jan-2026 16:22:17 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/nukkadne/public_html/brand-elevate.in/public/perplexity_api.php:148
+Stack trace:
+#0 /home/nukkadne/public_html/brand-elevate.in/public/perplexity_api.php(115): saveSocialPost()
+#1 {main}
+  thrown in /home/nukkadne/public_html/brand-elevate.in/public/perplexity_api.php on line 148
+[06-Jan-2026 16:27:37 UTC] PHP Warning:  Undefined variable $conn in /home/nukkadne/public_html/brand-elevate.in/public/perplexity_api.php on line 158
+[06-Jan-2026 16:27:37 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/nukkadne/public_html/brand-elevate.in/public/perplexity_api.php:18
+Stack trace:
+#0 /home/nukkadne/public_html/brand-elevate.in/public/perplexity_api.php(163): saveSocialPost()
+#1 {main}
+  thrown in /home/nukkadne/public_html/brand-elevate.in/public/perplexity_api.php on line 18
+[06-Jan-2026 16:27:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method PDOStatement::bind_param() in /home/nukkadne/public_html/brand-elevate.in/public/perplexity_api.php:28
+Stack trace:
+#0 /home/nukkadne/public_html/brand-elevate.in/public/perplexity_api.php(163): saveSocialPost()
+#1 {main}
+  thrown in /home/nukkadne/public_html/brand-elevate.in/public/perplexity_api.php on line 28
+[06-Jan-2026 16:31:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method PDOStatement::bind_param() in /home/nukkadne/public_html/brand-elevate.in/public/perplexity_api.php:28
+Stack trace:
+#0 /home/nukkadne/public_html/brand-elevate.in/public/perplexity_api.php(163): saveSocialPost()
+#1 {main}
+  thrown in /home/nukkadne/public_html/brand-elevate.in/public/perplexity_api.php on line 28
+[06-Jan-2026 16:45:38 UTC] PHP Warning:  require_once(functions.php): Failed to open stream: No such file or directory in /home/nukkadne/public_html/brand-elevate.in/public/posts.php on line 16
+[06-Jan-2026 16:45:38 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'functions.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/nukkadne/public_html/brand-elevate.in/public/posts.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/nukkadne/public_html/brand-elevate.in/public/posts.php on line 16
+[06-Jan-2026 17:45:06 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "STABILITY_API_KEY" in /home/nukkadne/public_html/brand-elevate.in/public/perplexity_api.php:82
+Stack trace:
+#0 {main}
+  thrown in /home/nukkadne/public_html/brand-elevate.in/public/perplexity_api.php on line 82

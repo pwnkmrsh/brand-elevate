@@ -3,11 +3,6 @@ require "../config/google/google-config.php";
 
 $googleLoginUrl = $client->createAuthUrl();
 
-foreach ($_SESSION as $key => $value) {
-    echo $key . " = " . $value . "<br>";
-}
-
-
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $email = $_POST['email'];

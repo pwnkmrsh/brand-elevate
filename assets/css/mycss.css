@@ -1,0 +1,40 @@
+.fb-post {
+    max-width: 520px;
+    margin: auto;
+    border-radius: 12px;
+}
+
+.fb-avatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.fb-post-text {
+    font-size: 15px;
+    line-height: 1.5;
+    white-space: pre-line;
+}
+
+.fb-post-image {
+    max-height: 420px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.fb-actions {
+    font-size: 14px;
+    color: #65676b;
+    border-top: 1px solid #e4e6eb;
+    padding-top: 8px;
+}
+
+.fb-actions span {
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.fb-actions span:hover {
+    background: #f0f2f5;
+}

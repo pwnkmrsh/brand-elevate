@@ -1,4 +1,7 @@
-<?php include "../themes/include/header.php"; ?>
+<?php 
+include "../themes/include/header.php";
+include "../themes/include/menu.php";
+?>
 <style>
     label {
         color: #000000;
@@ -21,7 +24,7 @@
                 <div class="col-xl-12 col-lg-4 col-md-12 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
 
                     <div class="container">
-                        <h3>Social Media Post Generator</h3>
+                        <h3>Social Media Post Generator 
 
                         <form id="postGeneratorForm" class="php-email-form" data-aos="fade-up" data-aos-delay="400">
                             <div class="row gy-3">
@@ -72,7 +75,7 @@
                         <div id="generatedOutput" class="result-box"></div>
                         <div id="shareButtons" class="mt-3" style="display:none;">
                             <button class="btn btn-secondary" id="copyPost">Copy Text</button>
-                            <button class="btn btn-success" id="downloadImage" style="display:none1;">Download Image</button>
+                            <button class="btn btn-success" id="downloadImage" style="display:none;">Download Image</button>
                             <a id="waShare" class="btn btn-success" target="_blank">Share on WhatsApp</a>
                             <a id="fbShare" class="btn btn-primary" target="_blank">Share on Facebook</a>
                         </div>
@@ -111,39 +114,33 @@
 
                     $(".sent-message").show();
 
-                    var html = '<div class="card p-3"><h5>Generated Post</h5>';
-                    html += '<div class="post-text">' + (res.generated_text || '') + '</div>';
+                    let html = '<div class="card p-3"><h5>Generated Post</h5>';
+                    html += '<div class="post-text">' + res.generated_text + '</div>';
 
-                    // 🟢 Show image if exists
+                    // Show image if exists
                     if (res.image_url) {
                         html += '<img src="' + res.image_url + '" class="img-fluid mt-3" />';
                         $("#downloadImage").show().data("img", res.image_url);
                     }
 
-                    // 🟢 Show all search results
-                    if (res.search_results && res.search_results.length > 0) {
-                        html += '<h6 class="mt-3">Search Sources</h6>';
-                        html += '<ul class="list-group">';
-
-                        res.search_results.forEach(function(item) {
-                            html += `
-                <li class="list-group-item">
-                    <strong>${item.title || 'Result'}</strong><br>
-                    <small>${item.url || ''}</small>
-                </li>
-            `;
-                        });
-
-                        html += '</ul>';
-                    }
-
-                    // Raw response (optional)
-                    if (res.raw) {
-                        html += '<details class="mt-3"><summary>Raw response</summary><pre>' + JSON.stringify(res.raw, null, 2) + '</pre></details>';
-                    }
 
                     html += '</div>';
                     $("#generatedOutput").html(html);
+
+                    // Show share options
+                    $("#shareButtons").show();
+
+                    // WhatsApp Share
+                    $("#waShare").attr(
+                        "href",
+                        "https://wa.me/?text=" + encodeURIComponent(res.generated_text)
+                    );
+
+                    // Facebook share
+                    $("#fbShare").attr(
+                        "href",
+                        "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(res.image_url ?? "")
+                    );
                 },
 
                 error: function(xhr, status, err) {

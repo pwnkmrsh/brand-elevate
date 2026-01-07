@@ -1,9 +1,8 @@
 <?php include "../themes/include/header.php"; ?>
 <?php
- 
-if (empty($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit("session not found");
+if (!isset($_SESSION['user_id'])) {
+    echo "<script>window.location.href='login.php';</script>";
+    exit;
 }
 
 ?>
@@ -41,8 +40,7 @@ if (empty($_SESSION['user_id'])) {
                                         <option value="facebook">Facebook Post</option>
                                         <option value="linkedin">LinkedIn Post</option>
                                         <option value="instagram">Instagram</option>
-                                        <option value="twitter">Twitter</option>
-                                        <option value="youtube">YouTube Community</option>
+                                        <option value="twitter">X</option>
                                     </select>
                                 </div>
 
@@ -69,7 +67,7 @@ if (empty($_SESSION['user_id'])) {
                                 </div>
 
                                 <div class="col-md-12 text-center">
-                                    <div class="loading alert alert-info">Generating…</div>
+                                    <div class="loading alert alert-info">Generating</div>
                                     <div class="error-message alert alert-danger"></div>
                                     <div class="sent-message alert alert-success">Generated!</div>
                                     <button type="submit" class="btn btn-primary">Generate Post</button>
@@ -78,14 +76,45 @@ if (empty($_SESSION['user_id'])) {
                             </div>
                         </form>
 
-                        <div id="generatedOutput" class="result-box"></div>
+                        <div id="generatedOutput" class="result-box"></div> 
+
+   <!-- Header 
+                        <div id="generatedOutput" class="card fb-post shadow-sm result-box">
+                            <div class="card-body">
+
+                             
+                                <div class="d-flex align-items-center mb-2">
+                                    <?php
+                                    if (isset($_SESSION['image']) && !empty($_SESSION['image'])) {
+                                        echo "<img  class='rounded-circle me-2 fb-avatar' src='" . htmlspecialchars($_SESSION['image']) . "' width='40' />";
+                                    } ?>
+                                    <div>
+                                        <strong>Brand Elevate Facebook Page</strong><br>
+                                        <small class="text-muted">Just now · 🌍</small>
+                                    </div>
+                                </div>
+ 
+                                <div class="fb-post-text mb-2">
+                                    This is your generated Facebook post content.
+                                    It supports <strong>bold</strong> and line breaks.
+                                </div>
+ 
+                                <img src="post-image.jpg" class="img-fluid rounded fb-post-image" alt="Post Image">
+ 
+                                <div class="d-flex justify-content-between mt-3 fb-actions">
+                                    <span>👍 Like</span>
+                                    <span>💬 Comment</span>
+                                    <span>↪️ Share</span>
+                                </div>
+
+                            </div>
+                        </div> -->
                         <div id="shareButtons" class="mt-3" style="display:none;">
                             <button class="btn btn-secondary" id="copyPost">Copy Text</button>
                             <button class="btn btn-success" id="downloadImage" style="display:none1;">Download Image</button>
                             <a id="waShare" class="btn btn-success" target="_blank">Share on WhatsApp</a>
                             <a id="fbShare" class="btn btn-primary" target="_blank">Share on Facebook</a>
                         </div>
-
                     </div>
     </section>
 </main>
@@ -120,40 +149,87 @@ if (empty($_SESSION['user_id'])) {
 
                     $(".sent-message").show();
 
-                    var html = '<div class="card p-3"><h5>Generated Post</h5>';
-                    html += '<div class="post-text">' + (res.generated_text || '') + '</div>';
+                    let html = `
+        <div class="card p-3">
+            <h5>Generated Post</h5>
+            <div class="post-text">${res.generated_text || ''}</div>
+    `;
 
-                    // 🟢 Show image if exists
+                    // ðŸŸ¢ Show image if exists
                     if (res.image_url) {
-                        html += '<img src="' + res.image_url + '" class="img-fluid mt-3" />';
-                        $("#downloadImage").show().data("img", res.image_url);
+                        html += `<img src="${res.image_url}" class="img-fluid mt-3 generated-img" />`;
                     }
 
-                    // 🟢 Show all search results
+                    // ðŸŸ¢ Search results
                     if (res.search_results && res.search_results.length > 0) {
-                        html += '<h6 class="mt-3">Search Sources</h6>';
-                        html += '<ul class="list-group">';
+                        html += `<h6 class="mt-3">Search Sources</h6><ul class="list-group">`;
 
                         res.search_results.forEach(function(item) {
                             html += `
                 <li class="list-group-item">
                     <strong>${item.title || 'Result'}</strong><br>
                     <small>${item.url || ''}</small>
-                </li>
-            `;
+                </li>`;
                         });
 
-                        html += '</ul>';
+                        html += `</ul>`;
                     }
 
-                    // Raw response (optional)
-                    if (res.raw) {
-                        html += '<details class="mt-3"><summary>Raw response</summary><pre>' + JSON.stringify(res.raw, null, 2) + '</pre></details>';
-                    }
+                    // ðŸŸ¢ Buttons
+                    html += `
+        <div class="mt-3" id="shareButtons">
+            <button class="btn btn-secondary me-2" id="copyPost"> Copy Text</button>
+            <button class="btn btn-success me-2 d-none" id="downloadImage"> Download Image</button>
+            <a class="btn btn-success me-2" id="waShare" target="_blank"> WhatsApp</a>
+            <a class="btn btn-primary" id="fbShare" target="_blank"> Facebook</a>
+        </div>
+    `;
 
-                    html += '</div>';
+                    html += `</div>`;
                     $("#generatedOutput").html(html);
+
+                    /* =========================
+                       BUTTON LOGIC
+                    ========================== */
+
+                    // COPY
+                    $("#copyPost").off().on("click", function() {
+                        let text = $("#generatedOutput .post-text").text().trim();
+                        navigator.clipboard.writeText(text).then(() => {
+                            alert("âœ… Text copied");
+                        });
+                    });
+
+                    // IMAGE DOWNLOAD
+                    if (res.image_url) {
+                        $("#downloadImage")
+                            .removeClass("d-none")
+                            .data("img", res.image_url)
+                            .off()
+                            .on("click", function() {
+                                const a = document.createElement("a");
+                                a.href = $(this).data("img");
+                                a.download = "post-image.png";
+                                document.body.appendChild(a);
+                                a.click();
+                                document.body.removeChild(a);
+                            });
+                    }
+
+                    // WHATSAPP SHARE
+                    $("#waShare").attr(
+                        "href",
+                        "https://wa.me/?text=" + encodeURIComponent(res.generated_text)
+                    );
+
+                    // FACEBOOK SHARE
+                    $("#fbShare").attr(
+                        "href",
+                        "https://www.facebook.com/sharer/sharer.php?quote=" +
+                        encodeURIComponent(res.generated_text)
+                    );
                 },
+
 
                 error: function(xhr, status, err) {
                     $(".loading").hide();
