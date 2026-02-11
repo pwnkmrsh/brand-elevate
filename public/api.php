@@ -28,7 +28,7 @@ if ($platform == "linkedin") {
 // -------------------------------
 // ChatGPT API Request
 // -------------------------------
-$apiKey = "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";
+$apiKey = " JQAOO5UAFacA";
 
 $url = "https://api.openai.com/v1/chat/completions";
 $data = [
