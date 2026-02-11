@@ -11,7 +11,8 @@ $words = $_POST['words'] ?? 150;
 $imageNeed = $_POST['image']; */
 
 // OpenAI API Key
-$apiKey = "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";
+//$apiKey = " ";
+$apiKey = " ";
 
 // Platform instructions
 $instructions = [
@@ -60,10 +61,10 @@ $response = curl_exec($ch);
 curl_close($ch);
 
 $res = json_decode($response, true);
-
-var_dump($res); exit;
+ 
 
 $post = $res["choices"][0]["message"]["content"] ?? null;
+var_dump($res);
 if (!$post) {
     echo json_encode(["error" => "API returned no result"]);
     exit;
