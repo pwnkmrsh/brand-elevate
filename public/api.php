@@ -71,7 +71,8 @@ curl_close($ch);
 // Parse ChatGPT Response
 // -------------------------------
 $res = json_decode($response, true);
-var_dump($res); exit;
+var_dump($res);
+exit;
 
 if (isset($res["choices"][0]["message"]["content"])) {
     $text = $res["choices"][0]["message"]["content"];
