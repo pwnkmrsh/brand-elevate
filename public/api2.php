@@ -7,11 +7,11 @@ $p = $_POST['platform'];
 $tone = $_POST['tone'];
 $topic = $_POST['topic'];
 $words = $_POST['words'] ?? 150;
-$hashtags = $_POST['hashtags'];
-$imageNeed = $_POST['image'];
+/* $hashtags = $_POST['hashtags'];
+$imageNeed = $_POST['image']; */
 
 // OpenAI API Key
-$apiKey = "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";
+$apiKey = "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";
 
 // Platform instructions
 $instructions = [
@@ -25,7 +25,6 @@ $instructions = [
 $prompt = "Platform: $p
 Tone: $tone
 Word Limit: $words words
-Hashtags: $hashtags
 Topic: $topic
 Style: {$instructions[$p]}
 Generate a perfect post that fits the platform rules.";
@@ -61,10 +60,10 @@ $response = curl_exec($ch);
 curl_close($ch);
 
 $res = json_decode($response, true);
- 
+
+var_dump($res); exit;
 
 $post = $res["choices"][0]["message"]["content"] ?? null;
-
 if (!$post) {
     echo json_encode(["error" => "API returned no result"]);
     exit;
@@ -92,7 +91,7 @@ if ($imageNeed == "yes") {
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
     $imageResp = curl_exec($ch);
-    
+
     if (curl_errno($ch)) {
         apiError("Image API cURL Error", curl_error($ch));
     }
@@ -119,4 +118,3 @@ if ($imageNeed == "yes") {
 
     $imageUrl = $img["data"][0]["url"];
 }
-

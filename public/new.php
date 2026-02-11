@@ -1,10 +1,10 @@
 <?php include "../themes/include/header.php"; ?>
 <?php
-if (!isset($_SESSION['user_id'])) {
+/* if (!isset($_SESSION['user_id'])) {
     echo "<script>window.location.href='login.php';</script>";
     exit;
 }
-
+ */
 ?>
 
 <style>
@@ -134,7 +134,8 @@ if (!isset($_SESSION['user_id'])) {
             $("#generatedOutput").html("");
 
             $.ajax({
-                url: 'perplexity_api.php',
+            //    url: 'api/generate_post.php',
+                url: 'api2.php',
                 method: 'POST',
                 data: $(this).serialize(),
                 dataType: 'json',
@@ -155,12 +156,10 @@ if (!isset($_SESSION['user_id'])) {
             <div class="post-text">${res.generated_text || ''}</div>
     `;
 
-                    // ðŸŸ¢ Show image if exists
                     if (res.image_url) {
                         html += `<img src="${res.image_url}" class="img-fluid mt-3 generated-img" />`;
                     }
 
-                    // ðŸŸ¢ Search results
                     if (res.search_results && res.search_results.length > 0) {
                         html += `<h6 class="mt-3">Search Sources</h6><ul class="list-group">`;
 
@@ -175,7 +174,6 @@ if (!isset($_SESSION['user_id'])) {
                         html += `</ul>`;
                     }
 
-                    // ðŸŸ¢ Buttons
                     html += `
         <div class="mt-3" id="shareButtons">
             <button class="btn btn-secondary me-2" id="copyPost"> Copy Text</button>
